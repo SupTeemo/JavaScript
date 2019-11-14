@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,
+    maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1.0">
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="js/utf.js"></script>
+    <title>App下载页</title>
+</head>
+<style>
+    *,
+    body {
+        margin: 0;
+        padding: 0;
+        /* height: 100%; */
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+    }
+    .box {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-color: #fdfffe;
+    }
+
+    .imgTop {
+        width: 100%;
+        height: auto;
+    }
+
+    .img-icon {
+        margin: 50px 0 30px 0;
+        padding: 0;
+        width: 100%;
+        height: 120px;
+        text-align: center;
+        display: flex;
+        background-color: #ffffff;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+    }
+
+    .img-icon>div {
+        width: 120px;
+        height: 60px;
+        margin-bottom: 52px;
+        /* background-color:#fff; */
+        border-radius: 110px 110px 0 0;
+        border: 6px solid rgba(243, 243, 243, 0.8);
+        border-bottom: none;
+    }
+
+    .img {
+        padding: 0;
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        margin-top: 20px;
+        /* border: 1px; */
+    }
+
+    .title_d {
+        width: 100%;
+        height: auto;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title_d img {
+        width: 20px;
+        height: auto;
+        padding-right: 10px;
+    }
+
+    .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+        margin: 0px auto;
+    }
+
+    .content_title {
+        width: 100%;
+        height: auto;
+        color: #cccccc;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15px;
+    }
+
+    .QRcode div {
+        margin-top: 30px;
+        width: 100px;
+        height: 100px;
+        padding: 5px;
+        border: 1px rgba(102, 101, 101) solid;
+    }
+
+    .downbutton {
+        width: 160px;
+        height: 42px;
+        margin-top: 40px;
+        border-radius: 20px;
+        color: rgba(255, 255, 255, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(40, 203, 174, 1)
+    }
+
+    .content p {
+        margin-top: 20px;
+        margin-bottom: 120px;
+        color: #cccccc;
+        font-size: 12px;
+    }
+
+    .content_hr {
+        width: 90%;
+        height: 4px;
+        background-color: #eaeaea;
+    }
+
+    .content_list {
+        padding: 0 40px;
+        margin-bottom: 50px;
+    }
+
+    .content_list-titlte {
+        color: #666666;
+        margin-top: 60px;
+        font-size: 18px;
+    }
+
+    .content_list-text {
+        margin-top: 15px;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        color: #cccccc;
+        background-color: rgba(243, 246, 251, 1)
+    }
+</style>
+
+<script text="text/javascript">
+    $(document).ready(function() {
+        $("#qrcodeCanvas").qrcode({
+            render: "canvas", //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+            text: 'https://www.baidu.com/', //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+            width: "100", //二维码的宽度
+            height: "100", //二维码的高度
+            background: "#ffffff", //二维码的后景色
+            foreground: "#000000", //二维码的前景色
+            src: "./img/baidu.png", //二维码中间的图片
+        });
+    });
+    function test() {
+		alert('你是个憨憨 ʕ•ᴥ•ʔ ……')
+	}
+</script>
+
+<body>
+    <!-- <div  class="title">
+        <header>我们的70年</header>
+    </div> -->
+    <div class="box">
+        <div class="img-icon">
+            <div>
+                <img class="img" src="./img/baidu.png" alt="" />
+            </div>
+        </div>
+        <div class="content">
+            <div class="title_d">
+                <img src="./img/baidu.png" alt="">
+                <span>百度网</span>
+            </div>
+            <div class="content_title">
+                <div style="padding-right: 10px">版本：3.36(build 2)</div>
+                <div>大小： 51.1MB</div>
+            </div>
+            <div class="content_title">
+                更新时间：12小时前
+            </div>
+            <div class="QRcode">
+                <div id="qrcodeCanvas"></div>
+            </div>
+            <div onclick="test()" class="downbutton">点击安装</div>
+            <p>或者用手机扫描二维码安装</p>
+            <span class="content_hr"></span>
+        </div>
+
+        <div class="content_list">
+            <div class="content_list-titlte">历史版本</div>
+            <div class="content_list-text">
+                <span>3.3.7(build 1)</span>
+                <span>5分钟前</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
